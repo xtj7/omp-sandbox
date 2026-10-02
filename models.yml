@@ -1,0 +1,29 @@
+providers:
+  ai-server-170hx:
+    baseUrl: http://192.168.0.44:8300/v1
+    api: openai-completions
+    apiKey: ollama
+    compat:
+      supportsDeveloperRole: false
+      supportsReasoningEffort: true
+    models:
+      - id: nicosuter/Qwen3.8-27B-AWQ
+        name: Qwen3.8 27b (AI server CMP 170HX)
+        reasoning: true
+        input:
+          - text
+          - image
+        contextWindow: 262000
+        maxTokens: 64000
+        cost:
+          input: 0
+          output: 0
+          cacheRead: 0
+          cacheWrite: 0
+        thinkingLevelMap:
+          minimal: null
+          low: low
+          medium: medium
+          high: null
+          xhigh: xhigh
+          max: null
