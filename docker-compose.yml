@@ -18,8 +18,7 @@ services:
       - dind
     working_dir: /home/omp/dev
     volumes:
-      - ./models.yml:/home/omp/.omp/agent/models.yml
-      - ./mcp.json:/home/omp/.omp/agent/mcp.json
+      - ./omp:/home/omp/.omp
       - ./dev:/home/omp/dev
     extra_hosts:
       - "host.docker.internal:host-gateway"

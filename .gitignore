@@ -1,4 +1,6 @@
 .DS_Store
+.idea
 dev/
-mcp.json
-models.yml
+omp/*
+!omp/agent/mcp.json
+!omp/agent/models.yml
