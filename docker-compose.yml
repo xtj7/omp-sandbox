@@ -19,7 +19,7 @@ services:
     working_dir: /home/omp/dev
     volumes:
       - ./models.yml:/home/omp/.omp/agent/models.yml
-      - ./mcp.yml:/home/omp/.omp/agent/mcp.yml
+      - ./mcp.json:/home/omp/.omp/agent/mcp.json
       - ./dev:/home/omp/dev
     extra_hosts:
       - "host.docker.internal:host-gateway"
