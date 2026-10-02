@@ -78,6 +78,15 @@ RUN HOME=/root npm install -g playwright \
     && playwright install --with-deps chromium \
     && chown -R omp:omp /home/omp/.cache
 
+# Expose the Playwright Chromium as a "system" browser for tools that only
+# search PATH / PUPPETEER_EXECUTABLE_PATH (e.g. omp's browser tool, whose
+# managed Chromium has no linux/arm64 build)
+RUN CR=$(find /home/omp/.cache /root/.cache -path "*ms-playwright*" -name chrome -type f 2>/dev/null | head -n1) \
+    && test -n "$CR" \
+    && echo "Chromium found at: $CR" \
+    && ln -s "$CR" /usr/local/bin/chromium \
+    && ln -s "$CR" /usr/local/bin/google-chrome
+
 # ---------------------------------------------------------------------------
 # Dev tools as the omp user
 # ---------------------------------------------------------------------------

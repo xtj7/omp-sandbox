@@ -27,6 +27,7 @@ services:
       # dind listens on plaintext TCP; this is fine because the traffic
       # stays on the compose-internal network (nothing is published)
       - DOCKER_HOST=tcp://dind:2375
+      - PUPPETEER_EXECUTABLE_PATH=/usr/local/bin/chromium
     command: tmux new-session -A -s omp
 
 volumes:
